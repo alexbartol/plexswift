@@ -77,8 +77,8 @@ private func configurePostUsersSignInDataRequest(with configuration: URLRequestC
     configuration.method = .post
     configuration.headerParameterSerializable = request
     configuration.contentType = "application/x-www-form-urlencoded"
-    if let request {
-        configuration.body = try serializeFormData(with: request.requestBody)
+    if let body = request.requestBody {
+        configuration.body = try serializeFormData(with: body)
     }
     configuration.telemetryHeader = .userAgent
 }
